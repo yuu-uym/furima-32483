@@ -39,7 +39,7 @@ Things you may want to cover:
 ### Association
 
 - has_many :items
-- has_many :orders
+- has_many :purchases
 
 ## items テーブル
 | Column               | Type       | Options                        |
@@ -52,12 +52,12 @@ Things you may want to cover:
 | prefectures_id       | integer    | null: false                    |
 | day_to_delivery_id   | integer    | null: false                    |
 | value                | integer    | null: false                    |
-| user_id              | references | null: false,foreign_key: true  | 
+| user                 | references | null: false,foreign_key: true  | 
 
 ### Association
 
 - belongs_to :user
-- has_one :order
+- has_one :purchase 
 - belongs_to_active_hash :category
 - belongs_to_active_hash :condition
 - belongs_to_active_hash :delivery_fee
@@ -74,18 +74,18 @@ Things you may want to cover:
 | address          | string     | null: false                    |
 | building_name    | string     |                                |
 | phone_number     | string     | null: false                    |
+| purchase         | references | null: false,foreign_key: true  | 
 
 ### Association
 
 - belongs_to :purchase 
-- has_one_active_hash :prefectures
 
 # purchase テーブル
 
 | Column           | Type       | Options                        |
 | -------------    | ---------- | ------------------------------ |
-| user_id          | references | null: false, foreign_key: true | 
-| item_id          | references | null: false, foreign_key: true |
+| user             | references | null: false, foreign_key: true | 
+| item             | references | null: false, foreign_key: true |
 
 ### Association
 
