@@ -64,7 +64,7 @@ Things you may want to cover:
 - belongs_to_active_hash :prefectures
 - belongs_to_active_hash :day_to_delivery
 
-## orders テーブル
+## addresses テーブル
 
 | Column           | Type       | Options                        |
 | -------------    | ---------- | ------------------------------ |
@@ -91,4 +91,4 @@ Things you may want to cover:
 
 - belongs_to :item
 - belongs_to :user
-- has_one :order
+- has_one :addresses
