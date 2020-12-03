@@ -55,7 +55,7 @@ describe User do
         expect(@user.errors.full_messages).to include("Password is invalid")
       end
       it "passwordが全角であれば登録できない" do
-        @user.password = 'あいうえおかきくけこ'
+        @user.password = 'ABCD１２３４'
         @user.valid?
         expect(@user.errors.full_messages).to include("Password is invalid")
       end
