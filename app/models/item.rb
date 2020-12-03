@@ -6,8 +6,9 @@ class Item < ApplicationRecord
   belongs_to_active_hash :category
   belongs_to_active_hash :condition
   belongs_to_active_hash :delivery_fee
-  belongs_to_active_hash :prefectures
+  belongs_to_active_hash :prefecture
   belongs_to_active_hash :day_to_delivery
+  has_one_attached :image
 
   
   with_options presence: true do
@@ -18,7 +19,7 @@ class Item < ApplicationRecord
       validates :category_id
       validates :condition_id
       validates :delivery_fee_id
-      validates :prefectures_id
+      validates :prefecture_id
       validates :day_to_delivery_id
     end
   end
