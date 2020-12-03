@@ -9,12 +9,17 @@ class Item < ApplicationRecord
   belongs_to_active_hash :prefectures
   belongs_to_active_hash :day_to_delivery
 
-  validates :title, :text, presence: true
-  validates :value, :text, presence: true
+  
+  with_options presence: true do
+    validates :title
+    validates :value
 
-  validates :category_id, numericality: { other_than: 1 } 
-  validates :condition_id, numericality: { other_than: 1 } 
-  validates :delivery_fee_id, numericality: { other_than: 1 } 
-  validates :prefectures_id, numericality: { other_than: 1 } 
-  validates :day_to_delivery_id, numericality: { other_than: 1 } 
+    with_options numericality: { other_than: 1 }  do
+      validates :category_id
+      validates :condition_id
+      validates :delivery_fee_id
+      validates :prefectures_id
+      validates :day_to_delivery_id
+    end
+  end
 end
