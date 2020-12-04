@@ -11,11 +11,11 @@ class ItemsController < ApplicationController
 
   def create
     @item = Item.new(item_params)
-    # if @item.save
-    #   redirect_to root_path
-    # else 
-    #   render :new
-    # end
+    if @item.save
+      redirect_to root_path
+    else 
+      render :new
+    end
   end
 
   def show
@@ -27,13 +27,9 @@ class ItemsController < ApplicationController
     unless user_signed_in?
       redirect_to action: :index
     end
-
-    def item_params
-      params.require(:item).permit(:name, :description, :category_id, :condition_id, :delivery_fee_id, :prefecture_id, :day_to_delivery_id, :value, :image).merge(user_id: current_user.id)
-    end
-
   end
 
-end
-
-
+    def item_params
+      params.require(:item).permit(:name, :description, :condition_id, :category_id, :delivery_fee_id, :prefecture_id, :day_to_delivery_id, :value, :image).merge(user_id: current_user.id)
+    end
+  end
