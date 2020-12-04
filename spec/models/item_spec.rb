@@ -13,6 +13,7 @@ describe Item do
     end
 
     context '出品登録がうまくいかないとき' do
+
       it "nameが空だと登録できない" do
         @item.name = ''
         @item.valid?
@@ -24,27 +25,27 @@ describe Item do
         expect(@item.errors.full_messages).to include("Description can't be blank")
       end
       it "category_idが１だと登録できない" do
-        @item.category_id = '1'
+        @item.category_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Category must be other than 1")
       end
       it "condition_id が１だと登録できない" do
-        @item.condition_id = '1'
+        @item.condition_id =  1
         @item.valid?
         expect(@item.errors.full_messages).to include("Condition must be other than 1")
       end
       it  "delivery_fee_idが１だと登録できない"do
-        @item.delivery_fee_id = '1'
+        @item.delivery_fee_id =  1
         @item.valid?
         expect(@item.errors.full_messages).to include("Delivery fee must be other than 1")
       end
       it  "prefecture_idが１だと登録できない" do
-        @item.prefecture_id = '1'
+        @item.prefecture_id =  1
         @item.valid?
         expect(@item.errors.full_messages).to include("Prefecture must be other than 1")
       end
       it  "day_to_delivery_idが１だと登録できない" do
-        @item.day_to_delivery_id = '1'
+        @item.day_to_delivery_id =  1
         @item.valid?
         expect(@item.errors.full_messages).to include("Day to delivery must be other than 1")
       end
@@ -54,12 +55,12 @@ describe Item do
         expect(@item.errors.full_messages).to include("Value can't be blank")
       end
       it "value が300未満だと登録できない" do
-        @item.value = '299'
+        @item.value = 299
         @item.valid?
         expect(@item.errors.full_messages).to include("Value must be greater than 300")
       end
       it "value が10,000,000以上だと登録できない" do
-        @item.value = '10000000'
+        @item.value = 10000000
         @item.valid?
         expect(@item.errors.full_messages).to include("Value must be less than 9999999")
       end

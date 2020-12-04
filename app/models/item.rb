@@ -24,7 +24,7 @@ class Item < ApplicationRecord
       validates :day_to_delivery_id
 
       validates :value, format: { with: /\A[0-9]+\z/ }
-      validates :value, numericality: { only_integer: true,greater_than: 300, less_than: 9999999
+      validates :value, numericality: { only_integer: true,greater_than: 299, less_than: 10000000
 }
     end
   end
