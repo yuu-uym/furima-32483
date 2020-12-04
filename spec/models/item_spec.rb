@@ -13,7 +13,11 @@ describe Item do
     end
 
     context '出品登録がうまくいかないとき' do
-
+      it "imageが空だと登録できない" do
+        @item.image = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Image can't be blank")
+      end
       it "nameが空だと登録できない" do
         @item.name = ''
         @item.valid?
@@ -57,12 +61,12 @@ describe Item do
       it "value が300未満だと登録できない" do
         @item.value = 299
         @item.valid?
-        expect(@item.errors.full_messages).to include("Value must be greater than 300")
+        expect(@item.errors.full_messages).to include("Value must be greater than 299")
       end
       it "value が10,000,000以上だと登録できない" do
         @item.value = 10000000
         @item.valid?
-        expect(@item.errors.full_messages).to include("Value must be less than 9999999")
+        expect(@item.errors.full_messages).to include("Value must be less than 10000000")
       end
       it "value が全角だと登録できない" do
         @item.value = '５００'
