@@ -9,11 +9,12 @@ class OrdersController < ApplicationController
   end
 
   def create
+    binding.pry
     @user_order = UserOrder.new(order_params)
     @item = Item.find(params[:item_id])
     if @user_order.valid?
-      @user_order.save
-      redirect_to root_path
+       @user_order.save
+       redirect_to root_path
     else 
       render :index
     end
@@ -22,8 +23,7 @@ class OrdersController < ApplicationController
   private
 
     def order_params
-      binding.pry
-      params.require(:user_order).permit(:prefecture_id, :city, :address, :building_name, :phone_number,).merge(user_id: current_user.id)
+      params.permit(:prefecture_id, :city, :address, :building_name, :phone_number, :item_id, :postal_code).merge(user_id: current_user.id, token: params[:token])
     end
 
 end
