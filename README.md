@@ -80,7 +80,7 @@ Things you may want to cover:
 
 - belongs_to :purchase 
 
-# purchase テーブル
+# orderテーブル
 
 | Column           | Type       | Options                        |
 | -------------    | ---------- | ------------------------------ |
