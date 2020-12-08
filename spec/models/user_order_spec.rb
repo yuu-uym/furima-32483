@@ -46,6 +46,11 @@ describe UserOrder do
         @user_order.valid?
         expect(@user_order.errors.full_messages).to include("Phone number can't be blank")
       end
+      it ' 電話番号にハイフンがあると購入できない' do
+        @user_order.phone_number = '123-456-789'
+        @user_order.valid?
+        expect(@user_order.errors.full_messages).to include("Phone number is invalid")
+      end
     end
   end
 end
