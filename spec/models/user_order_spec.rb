@@ -9,6 +9,10 @@ describe UserOrder do
       it '必要な情報を適切に入力すると、商品の購入ができる' do
         expect(@user_order).to be_valid
       end
+      it 'building_name が空でも、商品の購入ができる' do
+        @user_order.building_name = ''
+        expect(@user_order).to be_valid
+      end
     end
 
     context '購入がうまくいかないとき' do
