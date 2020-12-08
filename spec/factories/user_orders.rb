@@ -7,5 +7,7 @@ FactoryBot.define do
     building_name            { Faker::Lorem.sentence }
     phone_number             { '11111111111' }
     token                    {'1111111111111111' }
+    user_id                  {'11'}
+    item_id                  {'11'}
   end
 end
